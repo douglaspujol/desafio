@@ -21,7 +21,7 @@ Restrições técnicas:
 
   - [  ] Utilize redux para gerenciar o estado;
 
-  - [  ] Utilize react-router para trocar de página;
+  - [ x ] Utilize react-router para trocar de página;
 
   - [  ] Utilize @testing-library/react para testes;
 
