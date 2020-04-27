@@ -33,7 +33,7 @@ export const FavoritsCharactersList = styled.ul`
           position: absolute;
           width: auto;
           height: 100%;
-          right: -100%;
+          right: -30%;
         }
       }
       span {

@@ -64,7 +64,7 @@ export const ListCharacters = styled.ul`
 
       img {
       width: 100px;
-      height: 100px;
+      height:100px;
       border-radius: 50%;
       margin-right: 15px;
     }
