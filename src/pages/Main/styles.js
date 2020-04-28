@@ -26,8 +26,13 @@ export const Search = styled.div`
     border-radius: 20px;
     color: #a9aaae;
     margin-bottom: 25px;
+    transition: all 0.2s;
     &::placeholder {
       color: #a9aaae;
+    }
+    &:focus {
+      border: 1px solid #000000;
+      box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
     }
   }
 `;
