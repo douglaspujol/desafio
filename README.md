@@ -6,9 +6,9 @@ OBS.: Caso a MarvelQL esteja indisponível, utilize a API oficial da Marvel (htt
 
 Funcionalidades esperadas:
 
-  - [  ] Crie uma lista de cards para exibir os personagens mostrando a imagem e o nome;
+  - [ x ] Crie uma lista de cards para exibir os personagens mostrando a imagem e o nome;
 
-  - [  ] Possibilite o usuário buscar personagens;
+  - [ x ] Possibilite o usuário buscar personagens;
 
   - [  ] Na lista o usuário pode ir para a página de detalhes do personagem e ver a lista de series dele;
 
@@ -19,7 +19,7 @@ Restrições técnicas:
 
   - [ x ] Utilize o create-react-app como base;
 
-  - [  ] Utilize redux para gerenciar o estado;
+  - [ x ] Utilize redux para gerenciar o estado;
 
   - [ x ] Utilize react-router para trocar de página;
 

@@ -17,7 +17,6 @@ export const Container = styled.div`
     img {
       position: absolute;
       height: 100%;
-      right: -50%;
     }
   }
 

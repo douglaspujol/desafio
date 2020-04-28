@@ -15,7 +15,7 @@ export default function FavoritsCharacters() {
         {characters.length > 0 &&
           characters.map(character => (
             <li key={character.id}>
-              <Link to="/details/1">
+              <Link to={`/details/${character.id}`}>
                 <div>
                   <img
                     src={`${character.thumbnail.path}.${character.thumbnail.extension}`}

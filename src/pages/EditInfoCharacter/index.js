@@ -1,23 +1,49 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Container, FormCharacter } from './styles';
+import { Form, Input, Textarea } from '@rocketseat/unform';
 
-export default function EditInfoCharacter() {
+import { useDispatch, useSelector } from 'react-redux';
+import * as Yup from 'yup';
+import { editCharacter } from '../../store/modules/favoritsCharacters/actions';
+
+import { Content } from './styles';
+
+export default function EditInfoCharacter({ match, history }) {
+  const { id } = match.params;
+  const dispatch = useDispatch();
+  const characterData = useSelector(
+    state => state.favoriteCharacters.charactersList
+  ).find(c => c.id === Number(id));
+
+  const { nameChar, thumbnail } = characterData;
+  const imgCharacter = `${thumbnail.path}.${thumbnail.extension}`;
+
+  function handleSubmit(data) {
+    characterData.name = data.name;
+    characterData.description = data.description;
+    dispatch(editCharacter(characterData));
+    history.push(`/details/${id}`);
+  }
+
   return (
-    <Container>
-      <div className="img">
-        <img
-          src="https://kanto.legiaodosherois.com.br/w760-h398-gnw-cfill-q80/wp-content/uploads/2018/09/legiao_kO1neyKugo4YIMvWDFxd_GJ8cp0H3itZUbL7SVhAqw.jpg.jpeg"
-          alt=""
-        />
+    <Content>
+      <div>
+        <img src={imgCharacter} alt={nameChar} />
       </div>
 
-      <FormCharacter>
-        <input type="text" placeholder="Nome" />
-        <input type="text" placeholder="Descrição bem bacana" />
-        <Link to="/details/2">Salvar</Link>
-      </FormCharacter>
-      <Link to="/details/2">Voltar</Link>
-    </Container>
+      <Form onSubmit={handleSubmit} initialData={characterData}>
+        <Input name="name" className="name" />
+
+        <Textarea name="description" className="description" />
+
+        <button type="submit" className="salvar">
+          SALVAR
+        </button>
+        <Link to={`/details/${id}`} className="voltar">
+          Voltar
+        </Link>
+      </Form>
+    </Content>
   );
 }
