@@ -10,9 +10,9 @@ Funcionalidades esperadas:
 
   - [ x ] Possibilite o usuário buscar personagens;
 
-  - [  ] Na lista o usuário pode ir para a página de detalhes do personagem e ver a lista de series dele;
+  - [ x ] Na lista o usuário pode ir para a página de detalhes do personagem e ver a lista de series dele;
 
-  - [  ] Crie um formulário para editar um personagem Marvel (salvando apenas no client-side);
+  - [ x ] Crie um formulário para editar um personagem Marvel (salvando apenas no client-side);
 
 
 Restrições técnicas:
