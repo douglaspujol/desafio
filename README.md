@@ -23,7 +23,7 @@ Restrições técnicas:
 
   - [ x ] Utilize react-router para trocar de página;
 
-  - [  ] Utilize @testing-library/react para testes;
+  - [ x ] Utilize @testing-library/react para testes;
 
 
 Diferencial:
