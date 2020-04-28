@@ -40,4 +40,20 @@ export const Container = styled.ul`
   }
 `;
 
-export const Navigation = styled.div``;
+export const Navigation = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  color: #fff;
+
+  button {
+    border: none;
+    padding: 10px;
+    width: 100px;
+    margin: 0 30px;
+    background: #ae0903;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #fff;
+  }
+`;
