@@ -12,10 +12,12 @@ export default function favoriteCharacters(state = INITIAL_STATE, action) {
         break;
       }
       case '@char/EDIT': {
-        const { id } = action.payload.character;
-        const index = draft.charactersList.findIndex(c => c.id === id);
-        draft.charactersList.splice(index, 1);
-        draft.charactersList.push(action.payload.character);
+        const { id, name, description } = action.payload;
+
+        const index = draft.charactersList.findIndex(e => e.id === Number(id));
+
+        draft.charactersList[index].name = name;
+        draft.charactersList[index].description = description;
         break;
       }
       default:

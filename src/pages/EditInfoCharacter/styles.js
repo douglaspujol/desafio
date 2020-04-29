@@ -67,7 +67,7 @@ export const Content = styled.div`
       background: #e6120a;
     }
   }
-  a.voltar {
+  a {
     margin-top: 15px;
     font-size: 14px;
     color: #3a3b3c;

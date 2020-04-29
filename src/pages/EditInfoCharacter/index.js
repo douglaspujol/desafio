@@ -1,54 +1,70 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Form, Input, Textarea } from '@rocketseat/unform';
-import { useDispatch, useSelector } from 'react-redux';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import { editCharacter } from '../../store/modules/favoritsCharacters/actions';
-
+import Input from './Form/Input';
 import { Content } from './styles';
 
 export default function EditInfoCharacter({ match, history }) {
-  const schema = Yup.object().shape({
-    name: Yup.string().required('Adicione um nome'),
-    description: Yup.string().required('Adicione uma descrição'),
-  });
-
   const { id } = match.params;
-  const dispatch = useDispatch();
-  const characterData = useSelector(
+  const character = useSelector(
     state => state.favoriteCharacters.charactersList
   ).find(c => c.id === Number(id));
+  const dispatch = useDispatch();
+  const imgCharacter = `${character.thumbnail.path}.${character.thumbnail.extension}`;
+  const formRef = useRef(null);
+  const initialData = {
+    name: `${character.name}`,
+    description: `${character.description}`,
+  };
 
-  const { thumbnail } = characterData;
-  const imgCharacter = `${thumbnail.path}.${thumbnail.extension}`;
+  async function handleSubmit(data, { reset }) {
+    try {
+      const schema = Yup.object().shape({
+        name: Yup.string().required('O nome é obrigatório'),
+        description: Yup.string().required('A descrição é obrigatória'),
+      });
 
-  function handleSubmit({ name, description }) {
-    characterData.name = name;
-    characterData.description = description;
-    dispatch(editCharacter(characterData));
-    history.push(`/details/${id}`);
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+
+      const { name, description } = data;
+
+      dispatch(editCharacter(id, name, description));
+
+      history.push(`/details/${id}`);
+      reset();
+    } catch (err) {
+      if (err instanceof Yup.ValidationError) {
+        const errorMessages = {};
+
+        err.inner.forEach(error => {
+          errorMessages[error.path] = error.message;
+        });
+
+        formRef.current.setErrors(errorMessages);
+      }
+    }
   }
 
   return (
     <Content>
       <div>
-        <img src={imgCharacter} alt={characterData.name} />
+        <img src={imgCharacter} alt={character.name} />
       </div>
-
-      <Form onSubmit={handleSubmit} initialData={characterData} schema={schema}>
-        <Input name="name" className="name" />
-
-        <Textarea name="description" className="description" />
-
+      <Form ref={formRef} initialData={initialData} onSubmit={handleSubmit}>
+        <Input name="name" />
+        <Input name="description" />
         <button type="submit" className="salvar">
           SALVAR
         </button>
-        <Link to={`/details/${id}`} className="voltar">
-          Voltar
-        </Link>
       </Form>
+      <Link to={`/details/${id}`}>Voltar</Link>
     </Content>
   );
 }

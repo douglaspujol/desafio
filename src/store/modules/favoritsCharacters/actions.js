@@ -5,9 +5,9 @@ export function addCharacterToList(character) {
   };
 }
 
-export function editCharacter(character) {
+export function editCharacter(id, name, description) {
   return {
     type: '@char/EDIT',
-    payload: { character },
+    payload: { id, name, description },
   };
 }
