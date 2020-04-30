@@ -71,7 +71,7 @@ export default function ListSeries({ id }) {
         <span>{`${currentPage} de ${pageCount}`}</span>
         <button
           type="button"
-          disabled={pageCount === 0}
+          disabled={currentPage === pageCount}
           onClick={handleNextPage}
         >
           Próximo

@@ -7,6 +7,7 @@ import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import { editCharacter } from '../../store/modules/favoritsCharacters/actions';
 import Input from './Form/Input';
+import TextArea from './Form/Textarea';
 import { Content } from './styles';
 
 export default function EditInfoCharacter({ match, history }) {
@@ -59,7 +60,7 @@ export default function EditInfoCharacter({ match, history }) {
       </div>
       <Form ref={formRef} initialData={initialData} onSubmit={handleSubmit}>
         <Input name="name" />
-        <Input name="description" />
+        <TextArea name="description" />
         <button type="submit" className="salvar">
           SALVAR
         </button>
