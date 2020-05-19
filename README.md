@@ -1,33 +1,45 @@
-Crie um projeto utilizando React e a API MarvelQL (https://api.marvelql.com/) seguindo as especificações abaixo:
+<h1 align="center">
+  API MARVEL REACTJS
+</h1>
 
-OBS.: Caso a MarvelQL esteja indisponível, utilize a API oficial da Marvel (https://developer.marvel.com/docs#)
+Este projeto conecta-se com a API oficial da Marvel (https://developer.marvel.com/docs#) e possui as seguintes funcionalidades;
 
+Funcionalidades
 
+  - Criação de uma lista de cards para exibir os personagens mostrando a imagem e o nome;
 
-Funcionalidades esperadas:
+  - Possibilidade de buscar novos personagens;
 
-  - [ x ] Crie uma lista de cards para exibir os personagens mostrando a imagem e o nome;
+  - Ver a lista de séries do personagem com paginação;
 
-  - [ x ] Possibilite o usuário buscar personagens;
-
-  - [ x ] Na lista o usuário pode ir para a página de detalhes do personagem e ver a lista de series dele;
-
-  - [ x ] Crie um formulário para editar um personagem Marvel (salvando apenas no client-side);
-
-
-Restrições técnicas:
-
-  - [ x ] Utilize o create-react-app como base;
-
-  - [ x ] Utilize redux para gerenciar o estado;
-
-  - [ x ] Utilize react-router para trocar de página;
-
-  - [ x ] Utilize @testing-library/react para testes;
+  - Editar um personagem Marvel (salvando apenas no client-side);
 
 
-Diferencial:
+Principais Tecnlogias utilizadas
 
-  - [  ] Crie uma pipeline no GitLab; (Exemplo: build => test => deploy);
+  - ReactJS utilizando create-react-app como base;
 
-  - [  ] Substituir o redux pelo Local state management do Apollo Client (caso esteja utilizando a MarvelQL);
+  - Redux para gerenciar o estado;
+
+  - React-router-dom para trocar de página;
+  
+  - Axios para conectar na API;
+  
+  - UnForm para criação do formulário de edição;
+  
+  - Reactotron para debugar 
+  
+  - Styled-Components para estilização;
+
+  - @testing-library/react para testes;
+
+visão geral do projeto
+![dragandDrop](https://ik.imagekit.io/kxc61ueka1/HULK01_hYTf1MZSI.gif)
+
+
+
+![tela01](https://ik.imagekit.io/kxc61ueka1/hulk03_bYZGCOfqE.gif)
+
+
+![tela02](https://ik.imagekit.io/kxc61ueka1/HULCK05_GD5R2vTFP.gif)
+
